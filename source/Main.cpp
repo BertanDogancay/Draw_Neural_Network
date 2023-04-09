@@ -12,7 +12,7 @@ int main() {
 	sf::RenderWindow window(sf::VideoMode(2000, 1000), "Frame");
 
 	std::vector<uint32_t> topology = { 4, 8, 1 };
-	NeuralNetwork nn(topology, 0.1);
+	NeuralNetwork nn(topology, 0.1f);
 
 	std::vector<std::vector<float>> targetInputs{
 		{0.0f, 0.0f, 0.0f, 0.0f},
@@ -66,19 +66,19 @@ int main() {
 
 	circles.resize(topology.size());
 
-	for (int i = 0; i <= circles.size() - 1; i++) {
-		for (int j = 1; j <= topology[i]; j++) {
+	for (uint32_t i = 0; i <= circles.size() - 1; i++) {
+		for (uint32_t j = 1; j <= topology[i]; j++) {
 			sf::CircleShape circle(radius);
-			circle.setFillColor(sf::Color::Black);
+			circle.setFillColor(sf::Color::White);
 			circle.setPosition(i * (window.getSize().x / topology.size()) + (window.getSize().x / (2 * topology.size())) - radius, window.getSize().y - j *
 				(window.getSize().y / topology[i]) + (window.getSize().y / (2 * topology[i])) - radius);
 			circles[i].push_back(circle);
 		}
 	}
 
-	for (int i = 0; i < topology.size() -1; i++) {
-		for (int j = 0; j < topology[i]; j++) {
-			for (int k = 0; k < topology[i + 1]; k++) {
+	for (uint32_t i = 0; i < topology.size() -1; i++) {
+		for (uint32_t j = 0; j < topology[i]; j++) {
+			for (uint32_t k = 0; k < topology[i + 1]; k++) {
 				line.push_back(sf::Vertex(circles[i][j].getPosition() + sf::Vector2f(radius, radius), sf::Color::Red));
 				line.push_back(sf::Vertex(circles[i + 1][k].getPosition() + sf::Vector2f(radius, radius), sf::Color::Red));
 				lines.push_back(line);
@@ -100,7 +100,7 @@ int main() {
 			text.setString(ss.str());
 			text.setFont(font);
 			text.setCharacterSize(24);
-			text.setFillColor(sf::Color::White);
+			text.setFillColor(sf::Color::Red);
 			text.setPosition(circles[i][j].getPosition() + sf::Vector2f(radius - text.getLocalBounds().width / 2.f,
 				radius - text.getLocalBounds().height / 2.f));
 			numbers.push_back(text);
