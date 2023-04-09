@@ -1,5 +1,9 @@
 # Draw_Neural_Network
-A simulation of a neural network with SFML.
+Experience the inner workings of a neural network with this SFML simulation. Have you ever wondered how a neural network adjusts its values and weights during training? Look no further than this simulation, which provides a fascinating and intuitive way to explore the process. Get an up-close look at how data is processed and see how the network responds to training inputs. This simulation is a valuable tool for anyone looking to deepen their understanding of neural networks and the way they learn.
+
+## Requirements:
+* SFML 2.5.1
+* VS 2022
 
 https://user-images.githubusercontent.com/111835151/230762023-c537673b-ce4c-46d3-b8cb-c831c213850f.mp4
 
